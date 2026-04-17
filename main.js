@@ -24,12 +24,12 @@ function sortCardsShuffle() {
 }
 
 let time = 60;
-function setDifficult(timeValue , btn) {
-    time = timeValue;
-    document.querySelectorAll(".modes.diff button").forEach((b) => {
-        b.classList.remove("selected-category");
-    });
-    btn.classList.add("selected-category");
+function setDifficult(timeValue, btn) {
+  time = timeValue;
+  document.querySelectorAll(".modes.diff button").forEach((b) => {
+    b.classList.remove("selected-category");
+  });
+  btn.classList.add("selected-category");
 }
 function setCardShape(category, btn) {
   selectedCategory = category;
@@ -39,6 +39,7 @@ function setCardShape(category, btn) {
   btn.classList.add("selected-category");
 }
 
+let isChecking = false; //
 function displayCards(cards) {
   gameContainer.innerHTML = "";
   cards.forEach((card) => {
@@ -48,9 +49,11 @@ function displayCards(cards) {
     gameContainer.appendChild(cardElement);
 
     cardElement.addEventListener("click", () => {
+        if(isChecking || cardElement.classList.contains("flipped")) return; 
       if (
         flippedCards.length < 2 &&
-        !cardElement.classList.contains("flipped")
+        !cardElement.classList.contains("flipped") &&
+        !isChecking
       ) {
         flipCard(cardElement, card);
         flippedCards.push({ element: cardElement, value: card });
@@ -76,6 +79,7 @@ function isSimilar(card1, card2) {
 }
 
 function checkMatch() {
+  isChecking = true;
   const [card1, card2] = flippedCards;
   if (isSimilar(card1.value, card2.value)) {
     card1.element.classList.add("matched");
@@ -83,6 +87,7 @@ function checkMatch() {
     score.innerHTML = parseInt(score.innerHTML) + 10;
     matchedCounts += 2;
     flippedCards = [];
+    isChecking = false;
     if (matchedCounts === 16) {
       let timeTaken = time - parseInt(timer.innerHTML);
       clearInterval(countdown);
@@ -95,6 +100,7 @@ function checkMatch() {
       hideCard(card1.element);
       hideCard(card2.element);
       flippedCards = [];
+      isChecking = false;
     }, 800);
   }
 }
@@ -121,12 +127,13 @@ function isLoser() {
   }
 }
 
-function startGame(time , category) {
+function startGame(time, category) {
   document.getElementById("setup-screen").style.display = "none";
   document.getElementById("game-ui").style.display = "block";
   score.innerHTML = 0;
   matchedCounts = 0;
   flippedCards = [];
+  isChecking = false;
   displayCards(sortCardsShuffle());
   timerCountdown(time);
 }
