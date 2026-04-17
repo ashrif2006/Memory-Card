@@ -11,7 +11,7 @@ let matchedCounts = 0;
 function _16EL(array) {
   return array.concat(array);
 }
-let selectedCategory = "fruutes";
+let selectedCategory = "produce";
 function sortCardsShuffle() {
   let array = _16EL(cards[selectedCategory]);
   for (let i = array.length - 1; i > 0; i--) {
@@ -37,7 +37,6 @@ function setCardShape(category, btn) {
     b.classList.remove("selected-category");
   });
   btn.classList.add("selected-category");
-  console.log(btn);
 }
 
 function displayCards(cards) {
