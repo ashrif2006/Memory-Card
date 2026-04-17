@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memory Card</title>
+
+    <!-- Links css -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="setup-screen" class="overlay">
+      <h1>Memory Challenge</h1>
+      <p>Select Difficulty:</p>
+      <div class="modes diff">
+        <button onclick="setDifficult(60 , this)" >Easy</button>
+        <button onclick="setDifficult(45 , this)" >Medium</button>
+        <button onclick="setDifficult(30 , this)" >Hard</button>
+      </div>
+      <p>select shape of the cards:</p>
+      <div class="modes cat">
+        <button onclick="setCardShape('fruutes' , this)">fruutes</button>
+        <button onclick="setCardShape('animals' , this)">animals</button>
+      </div>
+      <button onclick="startGame(time , selectedCategory)" id="startGame">Start Game</button>
+    </div>
+
+    <div id="game-ui" style="display: none">
+      <div class="game-info">
+        <div class="info-box">Score: <span id="score">0</span></div>
+        <div class="info-box">Time: <span id="timer">60</span>s</div>
+      </div>
+      <div class="game-container" id="gameContainer">
+        <div class="card">1</div>
+        <div class="card">1</div>
+        <div class="card">1</div>
+        <div class="card">1</div>
+        <div class="card">1</div>
+        <div class="card">1</div>
+        <div class="card">1</div>
+        <div class="card">1</div>
+      </div>
+    </div>
+
+    <div id="setup-winner" class="winner" style="display: none;">
+      <h1>Congratulations!</h1>
+      <p>You won the game!</p>
+      <p>you took <span id="time-taken">0</span> seconds to complete the game.</p>
+      <button onclick="location.reload()">Play Again</button>
+    </div>
+
+    <div id="setup-loser" class="loser" style="display: none;">
+      <h1>Game Over!</h1>
+      <p>You ran out of time!</p>
+      <button onclick="location.reload()">Play Again</button>
+    </div>
+
+    <!-- javascript -->
+    <script src="main.js"></script>
+  </body>
+</html>
