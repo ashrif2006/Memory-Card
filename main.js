@@ -1,5 +1,5 @@
 const cards = {
-  fruutes: ["🍈", "🍉", "🍊", "🍆", "🌶", "🍄", "🍒", "🍅"],
+  produce: ["🍈", "🍉", "🍊", "🍆", "🌶", "🍄", "🍒", "🍅"],
   animals: ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼"],
 };
 let gameContainer = document.getElementById("gameContainer");
