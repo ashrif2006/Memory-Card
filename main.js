@@ -101,7 +101,7 @@ function checkMatch() {
       hideCard(card2.element);
       flippedCards = [];
       isChecking = false;
-    }, 800);
+    }, 400);
   }
 }
 
