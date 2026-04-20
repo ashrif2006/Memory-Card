@@ -81,6 +81,7 @@ function isSimilar(card1, card2) {
 
 function checkMatch() {
   isChecking = true;
+    countMoves();
   const [card1, card2] = flippedCards;
   if (isSimilar(card1.value, card2.value)) {
     card1.element.classList.add("matched");
@@ -139,4 +140,8 @@ function startGame(time, category) {
   timerCountdown(time);
 }
 
-// displayCards(sortCardsShuffle());
+function countMoves(){
+  const moves = parseInt(document.getElementById("moves").innerHTML);
+  document.getElementById("moves").innerHTML = moves + 1;
+
+}

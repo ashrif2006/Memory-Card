@@ -54,6 +54,21 @@ p {
     margin-bottom: 1.5rem;
 }
 
+.restart{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    padding: 10px 20px;
+    border-radius: 14px;
+    color: #cbd5e1;
+    font-weight: 600;
+    font-family: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
 /* Base overlay styling for panels */
 .overlay, .winner, .loser {
     text-align: center;
@@ -287,5 +302,18 @@ p {
     }
     h1 {
         font-size: 2rem;
+    }
+    .game-info {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    .info-box {
+        font-size: 1.1rem;
+        padding: 10px 25px;
+        width: 30%;
+    }
+    .restart {
+        padding: 8px 16px;
+        font-size: 0.8rem;
     }
 }
