@@ -1,6 +1,7 @@
 const cards = {
   produce: ["🍈", "🍉", "🍊", "🍆", "🌶", "🍄", "🍒", "🍅"],
   animals: ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼"],
+  vehicles: ["🚗", "🚲", "✈️", "🚢", "🚁", "🚂", "🚜", "🛵"],
 };
 let gameContainer = document.getElementById("gameContainer");
 let score = document.getElementById("score");
